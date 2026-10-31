@@ -1,0 +1,12 @@
+import {NextConfig} from 'next';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
+const config: NextConfig = {
+  output: 'export',
+  basePath: '/rp-next-intl',
+  images: {unoptimized: true}
+};
+
+export default withNextIntl(config);
