@@ -1,4 +1,4 @@
-import {NextIntlClientProvider} from 'next-intl';
+import {Locale, NextIntlClientProvider} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
 import {clsx} from 'clsx';
 import {Inter} from 'next/font/google';
@@ -14,7 +14,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
-  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+  const t = await getTranslations({locale: locale as Locale, namespace: 'LocaleLayout'});
 
   return {
     title: t('title')
@@ -26,7 +26,7 @@ export default async function LocaleLayout({
   params
 }: LayoutProps<'/[locale]'>) {
   const {locale} = await params;
-  setRequestLocale(locale);
+  setRequestLocale(locale as Locale);
 
   return (
     <html className="h-full" lang={locale}>
