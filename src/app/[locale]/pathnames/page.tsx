@@ -18,6 +18,14 @@ export default function PathnamesPage({params}: {params: Promise<{locale: string
           )
         })}
       </div>
+      <h2>Autopilot section</h2>
+      <p>A short section, with <a href="/x">a link</a> &amp; &#123;braces&#125;.</p>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "name": "Autopilot FAQ",
+        "@type": "FAQPage",
+        "@context": "https://schema.org",
+        "mainEntity": []
+      }) }} />
     </PageLayout>
   );
 }
